@@ -76,7 +76,7 @@
             <i v-if="sidebar" class='bx bxs-chevrons-left' ></i>
             <i v-else class='bx bxs-chevrons-right' ></i>
         </div>
-        <image-cropper :image="imgfile"/>
+        <image-cropper v-show="imgfile" :image="imgfile"/>
     </div>
 </template>
 
