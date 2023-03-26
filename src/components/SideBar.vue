@@ -76,7 +76,6 @@
             <i v-if="sidebar" class='bx bxs-chevrons-left' ></i>
             <i v-else class='bx bxs-chevrons-right' ></i>
         </div>
-        <cropper v-bind:src="imgfile" v-bind:options="options" v-on:init="onCropperInit" />
     </div>
 </template>
 
@@ -145,11 +144,9 @@ export default {
       const reader = new FileReader()
       reader.onload = () => {
         this.imgfile = reader.result
+        this.cropper = new Cropper(this.image, this.options)
       }
       reader.readAsDataURL(file)
-    },
-    onCropperInit(cropper) {
-      this.cropper = cropper
     },
     onCrop() {
       this.cropper.getCroppedCanvas().toBlob((blob) => {
