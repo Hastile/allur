@@ -11,10 +11,10 @@
         <!-- 이전/다음 페이지 이동 버튼 -->
         <div class="nav-buttons">
           <div class="left" v-bind:class="{ 'hidden': num == 1 }">
-            <router-link :to="{ name: 'Reader', params: { id, num: num - 1 } }"><i class='bx bx-chevron-left'></i></router-link>
+            <router-link :to="{ name: 'Reader', params: { id, num: num - 1 } }" @click="num -= 1"><i class='bx bx-chevron-left'></i></router-link>
           </div>
           <div class="right" v-bind:class="{ 'hidden': num == maxPageNum }">
-            <router-link :to="{ name: 'Reader', params: { id, num: num + 1 } }"><i class='bx bx-chevron-right'></i></router-link>
+            <router-link :to="{ name: 'Reader', params: { id, num: num + 1 } }" @click="num -= 1"><i class='bx bx-chevron-right'></i></router-link>
           </div>
 
         </div>
