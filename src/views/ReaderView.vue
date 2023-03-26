@@ -1,5 +1,5 @@
 <template>
-    <side-bar :maxPageNum="maxPageNum" @viewport="changeViewport" @select="pageMove" :selected="$store.state.pagenum"/>
+    <side-bar :maxPageNum="maxPageNum" @viewport="changeViewport" @select="pageMove" :selected="num"/>
     <div class="container">
         <!-- 책 페이지가 표시될 공간 -->
         <div class="page-container" v-bind:class="{ 'horizontal': horizontal }">
@@ -11,10 +11,10 @@
         <!-- 이전/다음 페이지 이동 버튼 -->
         <div class="nav-buttons">
           <div class="left" v-bind:class="{ 'hidden': num == 1 }">
-            <router-link :to="{ name: 'Reader', params: { id, num: num - 1 } }" @click="num -= 1"><i class='bx bx-chevron-left'></i></router-link>
+            <i class='bx bx-chevron-left' @click="moveLeft"></i>
           </div>
           <div class="right" v-bind:class="{ 'hidden': num == maxPageNum }">
-            <router-link :to="{ name: 'Reader', params: { id, num: num + 1 } }" @click="num += 1"><i class='bx bx-chevron-right'></i></router-link>
+            <i class='bx bx-chevron-right' @click="moveRight"></i>
           </div>
 
         </div>
@@ -60,6 +60,12 @@ export default {
     }
   },
   methods: {
+    moveLeft() {
+      this.$router.push({ name: 'Reader', params: { id: this.id, num: this.num - 1 } })
+    },
+    moveRight() {
+      this.$router.push({ name: 'Reader', params: { id: this.id, num: this.num + 1 } })
+    },
     handleKeyup (event) {
       const key = event.key
       if (key === 'ArrowLeft' && parseInt(this.$route.params.num) > 0) {

@@ -111,7 +111,6 @@ export default {
   },
   mounted () {
     this.selectedPageNum = this.selected
-    this.$store.dispatch('setPage', this.selected)
     this.sidebar = this.$store.state.sidebar
     !this.$store.state.user.profileimg ? this.profileimg = require('../assets/profile.webp') : this.profileimg = require(`../assets/${this.$store.state.user.profileimg}`)
   },
