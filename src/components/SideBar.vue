@@ -144,7 +144,7 @@ export default {
       const reader = new FileReader()
       reader.onload = () => {
         this.imgfile = reader.result
-        this.cropper = new Cropper(this.image, this.options)
+        this.cropper = new Cropper(this.imgfile, this.options)
       }
       reader.readAsDataURL(file)
     },
