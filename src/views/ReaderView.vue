@@ -162,26 +162,17 @@ export default {
 .nav-buttons .right {
   text-align: right;
 }
-.nav-buttons a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.nav-buttons i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100px;
   height: 100px;
-  text-decoration: none;
-}
-
-i {
-    width: 100%;
-    height: 100%;
-    color: black;
-    display: block;
-    text-align: center;
-    line-height: 100px;
-    font-size: xx-large;
+  color: black;
+  display: block;
+  text-align: center;
+  line-height: 100px;
+  font-size: xx-large;
 }
 
 .hidden {
