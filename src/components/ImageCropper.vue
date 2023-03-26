@@ -33,7 +33,7 @@ export default {
         };
     },
     watch: {
-        image: () => {
+        image: function () {
             this.image ? this.initializeCropper() : null
         }
     },
