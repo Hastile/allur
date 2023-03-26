@@ -2,7 +2,7 @@
   <side-bar/>
   <div class="container" ref="container" @scroll="checkScroll">
     <div class="item" v-for="n of title" :key="n" :class="n.type" @click="$router.push({ name: 'Reader', params: { id: n.id, num: 1 }})">
-        <img :src="`http://localhost:3000/image/${n.id}/1`" alt="">
+        <img :src="`https://port-0-allur-b-6g2llfmbbu8x.sel3.cloudtype.app/image/${n.id}/1`" alt="">
         <div class="info">
           <h2>{{ n.title }}</h2>
           <h3>{{ n.id }}</h3>

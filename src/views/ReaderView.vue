@@ -39,18 +39,18 @@ export default {
   computed: {
     currentPageUrl () {
       // 현재 페이지 이미지 URL을 계산
-      return `http://localhost:3000/image/${this.$route.params.id}/${this.$route.params.num}`
+      return `https://port-0-allur-b-6g2llfmbbu8x.sel3.cloudtype.app/image/${this.$route.params.id}/${this.$route.params.num}`
     },
     previousPageUrl () {
       // 이전 페이지 이미지 URL을 계산
       const num = parseInt(this.$route.params.num) - 1
-      return num > 0 ? `http://localhost:3000/image/${this.$route.params.id}/${num}` : null
+      return num > 0 ? `https://port-0-allur-b-6g2llfmbbu8x.sel3.cloudtype.app/image/${this.$route.params.id}/${num}` : null
     },
     nextPageUrl () {
       // 다음 페이지 이미지 URL을 계산
       const num = parseInt(this.$route.params.num) + 1
       // 마지막 페이지에서는 다음 이미지를 로딩하지 않음
-      return num <= this.maxPageNum ? `http://localhost:3000/image/${this.$route.params.id}/${num}` : null
+      return num <= this.maxPageNum ? `https://port-0-allur-b-6g2llfmbbu8x.sel3.cloudtype.app/image/${this.$route.params.id}/${num}` : null
     },
     id () {
       return parseInt(this.$route.params.id)
