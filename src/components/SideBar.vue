@@ -106,7 +106,6 @@ export default {
   },
   watch: {
     selectedPageNum(value) {
-      this.$store.dispatch('setPage', value)
       this.$emit('select', value)
     }
   },
