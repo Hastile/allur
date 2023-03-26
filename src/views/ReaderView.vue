@@ -14,7 +14,7 @@
             <router-link :to="{ name: 'Reader', params: { id, num: num - 1 } }" @click="num -= 1"><i class='bx bx-chevron-left'></i></router-link>
           </div>
           <div class="right" v-bind:class="{ 'hidden': num == maxPageNum }">
-            <router-link :to="{ name: 'Reader', params: { id, num: num + 1 } }" @click="num -= 1"><i class='bx bx-chevron-right'></i></router-link>
+            <router-link :to="{ name: 'Reader', params: { id, num: num + 1 } }" @click="num += 1"><i class='bx bx-chevron-right'></i></router-link>
           </div>
 
         </div>
