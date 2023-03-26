@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <div ref="cropArea" class="cropArea">
             <img ref="image" :src="image" @load="initializeCropper" />
         </div>
@@ -56,13 +56,23 @@ export default {
 
 <style scoped>
 .cropArea {
-    width: 500px;
-    height: 500px;
+    margin: 10px;
+    height: 90%;
     position: relative;
 }
 
+.container {
+    width: 90vw;
+    height: 90vh;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .cropArea img {
-    max-width: 100%;
-    max-height: 100%;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 </style>
