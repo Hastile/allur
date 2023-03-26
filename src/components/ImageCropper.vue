@@ -34,7 +34,7 @@ export default {
     },
     watch: {
         image: function () {
-            this.image ? this.initializeCropper() : null
+            this.image.length>0 ? this.initializeCropper() : null
         }
     },
     methods: {
@@ -74,5 +74,14 @@ export default {
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+.cropper-crop-box, .cropper-view-box {
+    border-radius: 50%;
+}
+
+.cropper-view-box {
+    box-shadow: 0 0 0 1px #39f;
+    outline: 0;
 }
 </style>
