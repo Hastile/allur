@@ -76,7 +76,7 @@
             <i v-if="sidebar" class='bx bxs-chevrons-left' ></i>
             <i v-else class='bx bxs-chevrons-right' ></i>
         </div>
-        <cropper v-if="showOverlay" v-bind:src="imgfile" v-bind:options="options" v-on:init="onCropperInit" />
+        <cropper v-bind:src="imgfile" v-bind:options="options" v-on:init="onCropperInit" />
     </div>
 </template>
 
