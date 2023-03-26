@@ -76,16 +76,16 @@
             <i v-if="sidebar" class='bx bxs-chevrons-left' ></i>
             <i v-else class='bx bxs-chevrons-right' ></i>
         </div>
+        <image-cropper :image="imgfile"/>
     </div>
 </template>
 
 <script>
-import Cropper from 'vue-cropperjs'
-import 'cropperjs/dist/cropper.css'
+import ImageCropper from './ImageCropper.vue'
 
 export default {
   components: {
-    Cropper
+    ImageCropper
   },
   props: {
     maxPageNum: {
@@ -104,17 +104,7 @@ export default {
       sidebar: true,
       profileimg: '',
       showOverlay: false,
-      imgfile: null,
-      cropper: null,
-      options: {
-        aspectRatio: 1 / 1, // 자를 이미지 비율
-        viewMode: 1,
-        zoomable: false,
-        background: false,
-        guides: false,
-        highlight: false,
-        autoCropArea: 1
-      }
+      imgfile: '',
     }
   },
   watch: {
@@ -147,16 +137,6 @@ export default {
         this.cropper = new Cropper(this.imgfile, this.options)
       }
       reader.readAsDataURL(file)
-    },
-    onCrop() {
-      this.cropper.getCroppedCanvas().toBlob((blob) => {
-        const url = URL.createObjectURL(blob)
-        this.profileimg = url
-        this.showOverlay = false
-      })
-    },
-    onCancel() {
-      this.showOverlay = false
     }
   }
 }

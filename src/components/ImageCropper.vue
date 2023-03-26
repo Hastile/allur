@@ -1,0 +1,68 @@
+<template>
+    <div>
+        <div ref="cropArea" class="cropArea">
+            <img ref="image" :src="image" @load="initializeCropper" />
+        </div>
+        <button @click="cropImage">Crop</button>
+    </div>
+</template>
+
+<script>
+import Cropper from "cropperjs";
+import "cropperjs/dist/cropper.css";
+export default {
+    name: "ImageCropper",
+    props: {
+        image: {
+            type: String,
+            required: true,
+        },
+    },
+    data() {
+        return {
+            cropper: null,
+            options: {
+                aspectRatio: 1 / 1, // 자를 이미지 비율
+                viewMode: 1,
+                zoomable: false,
+                background: false,
+                guides: false,
+                highlight: false,
+                autoCropArea: 1
+            }
+        };
+    },
+    watch: {
+        image: () => {
+            this.image ? this.initializeCropper() : null
+        }
+    },
+    methods: {
+        initializeCropper() {
+            if (this.cropper) {
+                this.cropper.destroy();
+            }
+
+            this.cropper = new Cropper(this.$refs.image, this.options);
+        },
+        cropImage() {
+            const croppedCanvas = this.cropper.getCroppedCanvas();
+            const croppedImage = croppedCanvas.toDataURL("image/jpeg");
+            this.$emit("cropImage", croppedImage);
+        },
+    },
+};
+</script>
+
+<style scoped>
+.cropArea {
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+
+.cropArea img {
+    max-width: 100%;
+    max-height: 100%;
+}
+</style>
