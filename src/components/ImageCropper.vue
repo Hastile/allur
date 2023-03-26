@@ -34,7 +34,7 @@ export default {
     },
     watch: {
         image: function () {
-            this.image.length>0 ? this.initializeCropper() : null
+            this.initializeCropper()
         }
     },
     methods: {
@@ -42,8 +42,9 @@ export default {
             if (this.cropper) {
                 this.cropper.destroy();
             }
-
-            this.cropper = new Cropper(this.$refs.image, this.options);
+            if (this.image !== '') {
+                this.cropper = new Cropper(this.$refs.image, this.options);
+            }
         },
         cropImage() {
             const croppedCanvas = this.cropper.getCroppedCanvas();
