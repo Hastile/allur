@@ -96,7 +96,7 @@ export default {
   },
   data () {
     return {
-      selectedPageNum: 1,
+      selectedPageNum: this.selected,
       fullscreen: false,
       sidebar: true,
       profileimg: '',
@@ -105,12 +105,14 @@ export default {
     }
   },
   watch: {
+    selected(value) {
+      this.selectedPageNum = value
+    },
     selectedPageNum(value) {
       this.$emit('select', value)
     }
   },
   mounted () {
-    this.selectedPageNum = this.selected
     this.sidebar = this.$store.state.sidebar
     !this.$store.state.user.profileimg ? this.profileimg = require('../assets/profile.webp') : this.profileimg = require(`../assets/${this.$store.state.user.profileimg}`)
   },
