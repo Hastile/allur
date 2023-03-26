@@ -4,7 +4,8 @@ export default createStore({
   state: {
     user: JSON.parse(localStorage.getItem('user')) || null,
     token: localStorage.getItem('jwt'),
-    sidebar: localStorage.getItem('sidebar') == 'true'
+    sidebar: localStorage.getItem('sidebar') == 'true',
+    pagenum: 1
   },
   mutations: {
     setUser (state, user) {
@@ -18,6 +19,9 @@ export default createStore({
     setSidebar (state, sidebar) {
       state.sidebar = sidebar
       localStorage.setItem('sidebar', sidebar ? 'true' : 'false')
+    },
+    setPage (state, page) {
+      state.pagenum = page
     }
   },
   actions: {
@@ -27,6 +31,9 @@ export default createStore({
     },
     setSidebar ({ commit }, { sidebar }) {
       commit('setSidebar', sidebar)
+    },
+    setPage({ commit }, { page }) {
+      commit('setPage', page)
     }
   },
   getters: {

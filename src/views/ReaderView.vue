@@ -1,5 +1,5 @@
 <template>
-    <side-bar :maxPageNum="maxPageNum" @viewport="changeViewport" @select="pageMove" :selected="num"/>
+    <side-bar :maxPageNum="maxPageNum" @viewport="changeViewport" @select="pageMove" :selected="$store.state.pagenum"/>
     <div class="container">
         <!-- 책 페이지가 표시될 공간 -->
         <div class="page-container" v-bind:class="{ 'horizontal': horizontal }">
