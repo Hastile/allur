@@ -1,16 +1,16 @@
 <template>
-  <back-ground />
+  <!-- <back-ground /> -->
   <router-view />
 </template>
 
 <style></style>
 
 <script>
-import BackGround from '@/components/BackGround.vue'
+// import BackGround from '@/components/BackGround.vue'
 
 export default {
   components: {
-    BackGround
+    // BackGround
   }
 }
 </script>
